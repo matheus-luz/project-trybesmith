@@ -1,10 +1,20 @@
 import { Router } from 'express';
 import ProductController from '../controllers/product.controller';
+import { validateAmount, validationName } from '../middlewares/product.middlewares';
 
-const router = Router();
+const ProductRouter = Router();
 
 const productsController = new ProductController();
 
-router.get('/products', productsController.getAll);
+// Buscar todos os Produtos
+ProductRouter.get('/', productsController.getAll);
 
-export default router;
+// Cadastrar um novo Produto
+ProductRouter.post(
+  '/', 
+  validationName, 
+  validateAmount, 
+  productsController.create,
+);
+
+export default ProductRouter;
