@@ -4,7 +4,7 @@ import UserService from '../services/user.service';
 
 const jwtConfig = { expiresIn: '7d' };
 
-const SECRET = process.env.JWT_SECRET as string;
+const SECRET = process.env.JWT_SECRET || 'secret';
 
 export default class UsersController {
   private UserService;
