@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 import UserService from '../services/user.service';
+// import { IToken } from './../interfaces/Token';
 
 const jwtConfig = { expiresIn: '7d' };
 
